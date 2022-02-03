@@ -77,23 +77,19 @@
         <?php endif ?>
     </div>
     <div class="task-board-icons-row">
-        
-        <?php 
-        
-        if (!$task['category_name']) {
-            echo "set time estimate or hourly rate";
-        } else {
+           
+		<?php if(!$task['category_name']): ?>
+            <span style="border: 1px solid #666; border-radius: 3px; padding: 1px 3px 1px 3px; line-height: 22px; text-align: center;" title="<?= t('Salary for this task')?>">set time estimate or hourly rate</span>
+        <?php else: ?>
+            <?php 
             $time_estimated_int = (int) $task['time_estimated'];
             $HourlyRateCategory = $task['category_name'];
             $HourlyRate = (float) trim($HourlyRateCategory,"€/hour");
             $salary = (float) trim($HourlyRateCategory,"€/hour") * (int) $task['time_estimated'];
-           // echo $salary . " €";
-        } 
-           
-        ?> 
-
-        <span style="border: 1px solid #666; border-radius: 3px; padding: 1px 3px 1px 3px; line-height: 22px; text-align: center;" title="<?= t('Salary for this task')?>"><?= $salary . " €"?></span>
-    
+            ?>
+            <span style="border: 1px solid #666; border-radius: 3px; padding: 1px 3px 1px 3px; line-height: 22px; text-align: center;" title="<?= t('Salary for this task')?>"><?= $salary . " €"?></span>
+        <?php endif; ?>
+		
         <?php if ($task['recurrence_status'] == \Kanboard\Model\TaskModel::RECURRING_STATUS_PENDING): ?>
             <?= $this->app->tooltipLink('<i class="fa fa-refresh fa-rotate-90"></i>', $this->url->href('BoardTooltipController', 'recurrence', array('task_id' => $task['id'], 'project_id' => $task['project_id']))) ?>
         <?php endif ?>
