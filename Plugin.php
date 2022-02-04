@@ -10,6 +10,7 @@ class Plugin extends Base
     public function initialize()
     {
         $this->template->setTemplateOverride('board/task_footer', 'HourlyRate:board/task_footer');
+        $this->template->setTemplateOverride('task/details', 'HourlyRate:task/details');
     }
 
     public function onStartup()
