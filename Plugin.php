@@ -11,6 +11,7 @@ class Plugin extends Base
     {
         $this->template->setTemplateOverride('board/task_footer', 'HourlyRate:board/task_footer');
         $this->template->setTemplateOverride('task/details', 'HourlyRate:task/details');
+        $this->template->setTemplateOverride('subtask/table', 'HourlyRate:subtask/table');
     }
 
     public function onStartup()
@@ -35,7 +36,7 @@ class Plugin extends Base
 
     public function getPluginVersion()
     {
-        return '1.0.5';
+        return '1.0.6';
     }
 
     public function getPluginHomepage()
