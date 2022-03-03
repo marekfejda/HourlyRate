@@ -44,10 +44,13 @@
                 )) ?>
             </td>
             <td>
+                <?php 
+                    $salary = (float) trim($task['category_name'],"€/hour") * (float) $subtask['time_estimated'];
+                ?>
                 <div class="salary" style="text-align: center">
-                    <?= $subtask['time_estimated'] * $task['category_name'] . " €"?>
+                    <span title="<?= t('Salary for this task')?>"><?= $salary . " €"?></span>
                 </div>
-            </td>
+                </td>
         </tr>
         <?php endforeach ?>
     </tbody>

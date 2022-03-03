@@ -114,10 +114,7 @@
                     </li>
                     <?php else: ?>
                         <?php 
-                        $time_estimated_int = (int) $task['time_estimated'];
-                        $HourlyRateCategory = $task['category_name'];
-                        $HourlyRate = (float) trim($HourlyRateCategory,"€/hour");
-                        $salary = (float) trim($HourlyRateCategory,"€/hour") * (int) $task['time_estimated'];
+                        $salary = (float) trim($task['category_name'],"€/hour") * (float) $task['time_estimated'];
                         ?>
                         <li>
                             <strong><?= t('Salary:') ?></strong>

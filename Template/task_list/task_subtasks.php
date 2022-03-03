@@ -17,8 +17,11 @@
                 )) ?>
             </span>
             <span class="subtask-cell column-5">
+                <?php 
+                    $salary = (float) trim($task['category_name'],"€/hour") * (float) $subtask['time_estimated'];
+                ?>
                 <div class="salary" style="text-align: center">
-                    <?= $subtask['time_estimated'] * $task['category_name'] . " €"?>
+                    <span title="<?= t('Salary for this task')?>"><?= $salary . " €"?></span>
                 </div>
             </span>
         </div>

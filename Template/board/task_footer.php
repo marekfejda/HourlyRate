@@ -82,10 +82,7 @@
             <span style="border: 1px solid #666; border-radius: 3px; padding: 1px 3px 1px 3px; line-height: 22px; text-align: center;" title="<?= t('Salary for this task')?>">set time estimate or hourly rate</span>
         <?php else: ?>
             <?php 
-            $time_estimated_int = (int) $task['time_estimated'];
-            $HourlyRateCategory = $task['category_name'];
-            $HourlyRate = (float) trim($HourlyRateCategory,"€/hour");
-            $salary = (float) trim($HourlyRateCategory,"€/hour") * (int) $task['time_estimated'];
+            $salary = (float) trim($task['category_name'],"€/hour") * (float) $task['time_estimated'];
             ?>
             <span style="border: 1px solid #666; border-radius: 3px; padding: 1px 3px 1px 3px; line-height: 22px; text-align: center;" title="<?= t('Salary for this task')?>"><?= $salary . " €"?></span>
         <?php endif; ?>
